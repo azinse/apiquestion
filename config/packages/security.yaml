@@ -1,0 +1,23 @@
+security:
+
+    # https://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        #main:
+            #anonymous: ~
+
+        api:
+            pattern:  ^/api
+            anonymous: ~
+
+            # activate different ways to authenticate
+
+            # form_login: ~
+            # https://symfony.com/doc/current/cookbook/security/form_login_setup.html
+
+    access_control:
+        - { path: ^/api, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
